@@ -15,7 +15,7 @@ unsigned long long count_anagrams(const char *word) {
     int len = strlen(word);
     unsigned long long total_permutations = factorial(len);
     
-    int letter_counts[256] = {0}; // Масив для підрахунку кількості кожного символу
+    int letter_counts[256] = {0}; 
     
     
     for (int i = 0; i < len; i++) {
