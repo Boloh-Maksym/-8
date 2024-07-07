@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-
+// Функція для обчислення факторіалу
 unsigned long long factorial(int n) {
     unsigned long long result = 1;
     for (int i = 1; i <= n; i++) {
@@ -10,34 +10,36 @@ unsigned long long factorial(int n) {
     return result;
 }
 
-
+// Функція для підрахунку кількості анаграм
 unsigned long long count_anagrams(const char *word) {
     int len = strlen(word);
     unsigned long long total_permutations = factorial(len);
-
-    int letter_counts[256] = {0};
-
-
+    
+    int letter_counts[256] = {0}; // Масив для підрахунку кількості кожного символу
+    
+    // Підрахунок кількості кожного символу
     for (int i = 0; i < len; i++) {
         letter_counts[(unsigned char)word[i]]++;
     }
-
+    
+    // Ділимо загальну кількість перестановок на факторіали кількості кожного символу
     for (int i = 0; i < 256; i++) {
         if (letter_counts[i] > 0) {
             total_permutations /= factorial(letter_counts[i]);
         }
     }
-
+    
     return total_permutations;
 }
 
 int main() {
     char word[15];
-    printf("������ �����: ");
-    scanf("%14s", word);
-
+    printf("Введіть слово: ");
+    scanf("%14s", word); // Читання слова, максимум 14 символів
+    
     unsigned long long anagrams_count = count_anagrams(word);
-    printf("ʳ������ �������: %llu\n", anagrams_count);
-
+    printf("Кількість анаграм: %llu\n", anagrams_count);
+    
     return 0;
 }
+
