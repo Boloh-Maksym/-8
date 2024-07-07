@@ -35,7 +35,7 @@ unsigned long long count_anagrams(const char *word) {
 int main() {
     char word[15];
     printf("Введіть слово: ");
-    scanf("%14s", word); // Читання слова, максимум 14 символів
+    scanf("%14s", word); 
     
     unsigned long long anagrams_count = count_anagrams(word);
     printf("Кількість анаграм: %llu\n", anagrams_count);
